@@ -1,0 +1,41 @@
+<% layout('layout/boilerplate')%>
+ 
+
+    <div class="row">
+        <h1 class="text-center">Edit Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title:</label>
+                    <input class="form-control" type="text" id="title" name="campground[title]" value="<%=campground.title%>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location:</label>
+                    <input class="form-control" type="text" id="location" name="campground[location]"value="<%=campground.location%>" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="Image">Add Images:</label>
+                    <input class="form-control" type="file" name="image" id="" multiple >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description:</label>
+                    <textarea class="form-control" type="text" id="description" name="campground[description]" required ><%=campground.description%></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Campground Price</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" id="price" name="campground[price]"value="<%=campground.price%>"required 
+                            aria-label="Amount (to the nearest dollar) " placeholder="0.00">
+                        <!-- <span class="input-group-text">.00</span> -->
+                    </div>
+                </div>
+
+                <button class="btn btn-dark mb-3">Edit CampGround</button>
+                <a href="/campgrounds/<%=campground._id%>" class="btn btn-warning mb-3"> Back to Campground</a>
+            </form>
+        </div>
+    </div>
+
+
+    
